@@ -8,9 +8,12 @@
 [core]
 	excludesfile = ~/.gitignoreglobal
 [alias]
-    trash = !git add . && git commit -m 'trash' && git reset --hard HEAD^
-    propose = !git push origin --set-upstream +HEAD:$USER/$(git-symbolic-ref HEAD | sed 's/^refs\\/heads\\///')
-    unpropose = !git push origin +:$USER/$(git-symbolic-ref HEAD | sed 's/^refs\\/heads\\///')
+    ru = remote update
+    co = checkout
+    st = status
+
+    graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold cyan)<%an>%Creset' --all --decorate=short --abbrev-commit --date=relative
+    ggraph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold cyan)<%an>%Creset' --decorate=short --abbrev-commit --date=relative
 [push]
     default = tracking
 
@@ -20,3 +23,7 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[filter "media"]
+	clean = git media clean %f
+	smudge = git media smudge %f
+	required = true

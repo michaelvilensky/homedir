@@ -3,6 +3,14 @@
 export PATH=/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin:$PATH
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
+if [ -f /opt/local/etc/bash_completion ]; then
+      . /opt/local/etc/bash_completion
+fi
+
+if [ -f ~/.git-completion.bash ]; then
+      . ~/.git-completion.bash
+fi
+
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
