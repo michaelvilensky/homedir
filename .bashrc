@@ -1,7 +1,17 @@
+
+alias ls='gls -F --color=auto'
+alias la='ls -a'
+alias lf='ls -FA'
+alias ll='ls -lA'
+alias dir='gdir --color=auto'
+alias vdir='gvdir --color=auto'
+
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
-
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -67,21 +77,27 @@ unset color_prompt force_color_prompt
 #esac
 
 # enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+#if [ -x /usr/bin/dircolors ]; then
+#if [ -x /usr/local/bin/gdircolors ]; then
+#test -r ~/.dircolors && eval "$(gdircolors -b ~/.dircolors)" || eval "$(gdircolors -b)"
 
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
+    #test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    #alias ls='ls --color=auto'
+    ##alias dir='dir --color=auto'
+    ##alias vdir='vdir --color=auto'
+
+    #alias grep='grep --color=auto'
+    #alias fgrep='fgrep --color=auto'
+    #alias egrep='egrep --color=auto'
+#fi
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+#alias ll='ls -alF'
+#alias la='ls -A'
+#alias l='ls -CF'
+
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -107,9 +123,6 @@ fi
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
-
-export PYTHONPATH=$HOME/work/python/
-export PYTHONSTARTUP=$HOME/work/python/startup.py
 
 if [ -t 0 ]; then
     stty stop undef

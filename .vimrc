@@ -39,7 +39,8 @@ let g:solarized_visibility="high"    "default value is normal
 syntax enable
 set background=dark
 "colorscheme solarized
-colorscheme torte
+"colorscheme torte
+colorscheme monokai
 syntax sync fromstart
 let g:python_highlight_space_errors=1
 let g:syntastic_python_checker = 'pyflakes'
@@ -127,3 +128,4 @@ set wildignore+=GUI/public/OLH/**
 set wildignore+=build/**
 set wildignore+=dist/**
 set wildignore+=doc/_build/**
+
